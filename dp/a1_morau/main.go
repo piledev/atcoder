@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 )
@@ -24,10 +25,16 @@ func main() {
 	}
 
 	dp := make([]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = math.MaxInt32
+	}
+
 	dp[0] = 0
-	dp[1] = abs(h[0], h[1])
-	for i := 2; i < n; i++ {
-		dp[i] = min(dp[i-2]+abs(h[i-2], h[i]), dp[i-1]+abs(h[i-1], h[i]))
+	for i := 1; i < n; i++ {
+		chmin(&dp[i], dp[i-1]+abs(h[i-1], h[i]))
+		if i > 1 {
+			chmin(&dp[i], dp[i-2]+abs(h[i-2], h[i]))
+		}
 	}
 	fmt.Println(dp[n-1])
 }
@@ -40,9 +47,10 @@ func abs(x, y int) int {
 	return ret
 }
 
-func min(x, y int) int {
-	if x > y {
-		return y
+func chmin(x *int, y int) bool {
+	if *x > y {
+		*x = y
+		return true
 	}
-	return x
+	return false
 }

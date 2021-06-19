@@ -22,12 +22,22 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer(math.MaxInt64)
 	N := readi()
-	a := make([]int, N)
+	A := make([]int, N)
 	for i := 0; i < N; i++ {
-		a[i] = readi()
+		A[i] = readi()
 	}
 
-	ans := 0
-	fmt.Println(ans)
+	B := make([]bool, N)
+	for _, v := range A {
+		B[v-1] = true
+	}
 
+	ans := "Yes"
+	for _, b := range B {
+		if !b {
+			ans = "No"
+			break
+		}
+	}
+	fmt.Println(ans)
 }

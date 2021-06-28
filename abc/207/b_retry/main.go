@@ -22,13 +22,14 @@ func reads() string {
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	a := readi()
+	b := readi()
+	c := readi()
+	d := readi()
+	if c*d-b <= 0 {
+		fmt.Println(-1)
+		return
 	}
-	ans := 0
-
+	ans := (a + (c*d - b) - 1) / (c*d - b)
 	fmt.Println(ans)
 }

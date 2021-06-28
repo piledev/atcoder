@@ -24,10 +24,16 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
+	m := make(map[int]int)
 	for i := 0; i < N; i++ {
-		A[i] = readi()
+		m[readi()]++
 	}
+  1 2 3 1 1 2     11 
+  13 22 31
+  ans :=  
+  for v := range m {
+
+  }
 	ans := 0
 
 	fmt.Println(ans)

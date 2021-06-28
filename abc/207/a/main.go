@@ -20,15 +20,23 @@ func reads() string {
 	return sc.Text()
 }
 
+func min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
+}
+
 func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
-	}
 	ans := 0
+	m := 101
+	for i := 0; i < 3; i++ {
+		v := readi()
+		ans += v
+		m = min(m, v)
+	}
 
-	fmt.Println(ans)
+	fmt.Println(ans - m)
 }

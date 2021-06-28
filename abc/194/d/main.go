@@ -11,24 +11,22 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func readi() int {
 	sc.Scan()
-	res, _ := strconv.Atoi(sc.Text())
+	res, err := strconv.Atoi(sc.Text())
+	if err != nil {
+		panic(err)
+	}
 	return res
-}
-
-func reads() string {
-	sc.Scan()
-	return sc.Text()
 }
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	fN := float64(N)
+	ans := float64(0)
+
+	for i := 1; i < N; i++ {
+		ans += 1.0 * fN / (fN - float64(i))
 	}
-	ans := 0
 
 	fmt.Println(ans)
 }

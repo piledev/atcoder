@@ -1,17 +1,15 @@
-// 29 minutes 9 minutes 9 minutes
 package main
 
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
 )
 
-var N, K int
-var h []int
-var dp []int
+var N, W int
+var w, v []int
+var dp [][]int
 
 var sc = bufio.NewScanner(os.Stdin)
 
@@ -28,41 +26,33 @@ func max(x, y int) int {
 	return x
 }
 
-func abs(x int) int {
-	if x < 0 {
-		return -1 * x
-	}
-	return x
-}
-
 func main() {
 	sc.Split(bufio.ScanWords)
 	N = readi()
-	K = readi()
-	h = make([]int, N)
+	W = readi()
+	w = make([]int, N)
+	v = make([]int, N)
 	for i := 0; i < N; i++ {
-		h[i] = readi()
+		w[i] = readi()
+		v[i] = readi()
 	}
-	dp = make([]int, N)
-	for i := 0; i < N; i++ {
-		dp[i] = math.MaxInt64
+	dp = make([][]int, N+1)
+	for i := range dp {
+		dp[i] = make([]int, W+1)
 	}
-	dp[0] = 0
-	// run_kubaru()
-	// run_morau()
-	run_recursive()
-	fmt.Println(dp[N-1])
-}
 
-func run_kubaru() {
+	run_morau()
+	fmt.Println(dp[N][W])
 }
 
 func run_morau() {
-}
-
-func run_recursive() {
-}
-
-func rec(i int) int {
-	return 0
+	for i := 0; i < N; i++ {
+		for j := 1; j <= W; j++ {
+			if w[i] <= j {
+				dp[i+1][j] = max(dp[i][j], dp[i][j-w[i]]+v[i])
+			} else {
+				dp[i+1][j] = dp[i][j]
+			}
+		}
+	}
 }

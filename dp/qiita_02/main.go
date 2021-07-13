@@ -1,3 +1,4 @@
+// 29 minutes 9 minutes 9 minutes
 package main
 
 import (
@@ -41,18 +42,14 @@ func main() {
 		dp[i] = make([]int, W+1)
 	}
 
-	run_morau()
-	fmt.Println(dp[N][W])
-}
-
-func run_morau() {
 	for i := 0; i < N; i++ {
 		for j := 1; j <= W; j++ {
-			if w[i] <= j {
+			if j-w[i] >= 0 {
 				dp[i+1][j] = max(dp[i][j], dp[i][j-w[i]]+v[i])
 			} else {
 				dp[i+1][j] = dp[i][j]
 			}
 		}
 	}
+	fmt.Println(dp[N][W])
 }

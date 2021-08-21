@@ -24,21 +24,21 @@ func readi() int {
 
 func main() {
 	sc.Split(bufio.ScanWords)
+	H := readi()
+	W := readi()
 	N := readi()
-	m = make(map[int][]int, N)
-	visited = make([]bool, N)
+	mh = make(map[int]bool, H)
+	mw = make(map[int]bool, W)
 	for i := 0; i < N-1; i++ {
 		a := readi()
 		b := readi()
-		m[a] = append(m[a], b)
-		m[b] = append(m[b], a)
+		mh[a] = append(mh[a], true)
+		mw[b] = append(mw[b], true)
 	}
 
-	for i := range m {
-		sort.Ints(m[i])
-	}
+	for i := 0; i < H; i++ {
 
-	dfs(1)
+	}
 
 	// ans = strings.TrimSpace(ans)
 	// fmt.Println(ans)

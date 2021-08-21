@@ -142,6 +142,17 @@ color ^= 1
 color = 1-color
 ```
 
+## 213
+### Result
+```
+a: AC onsight
+b: AC redpoint
+c: - 
+d: -  I can't understand editorial.  
+```
+### Technique
+-- str = str + str2 は遅い。[]str を最後にforで回したほうが断然早い？
+
 # Educational DP Contest 
 https://atcoder.jp/contests/dp
 ## A: Frog 1

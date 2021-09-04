@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -12,12 +13,19 @@ var sc = bufio.NewScanner(os.Stdin)
 func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	XY := reads()
+	xy := strings.Split(XY, ".")
+	x := xy[0]
+	y, _ := strconv.Atoi(xy[1])
+
+	ans := x
+	if y <= 2 {
+		ans = x + "-"
+	} else if y <= 6 {
+
+	} else {
+		ans = x + "+"
 	}
-	ans := N
 
 	fmt.Println(ans)
 }

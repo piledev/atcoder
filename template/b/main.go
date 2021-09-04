@@ -9,17 +9,6 @@ import (
 
 var sc = bufio.NewScanner(os.Stdin)
 
-func readi() int {
-	sc.Scan()
-	res, _ := strconv.Atoi(sc.Text())
-	return res
-}
-
-func reads() string {
-	sc.Scan()
-	return sc.Text()
-}
-
 func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
@@ -28,7 +17,23 @@ func main() {
 	for i := 0; i < N; i++ {
 		A[i] = readi()
 	}
-	ans := 0
+	ans := N
 
 	fmt.Println(ans)
+}
+
+// my functions
+func reads() string { sc.Scan(); return sc.Text() }
+func readi() int    { res, _ := strconv.Atoi(reads()); return res }
+func min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
+}
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }

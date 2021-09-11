@@ -3,23 +3,31 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
+	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
+	Q := make([]int, N)
 	for i := 0; i < N; i++ {
-		A[i] = readi()
+		p := readi()
+		Q[p-1] = i + 1
 	}
-	ans := N
 
-	fmt.Println(ans)
+	ans := make([]byte, 0, math.MaxInt32)
+	for i := range Q {
+		str := strconv.Itoa(Q[i])
+		ans = append(ans, str...)
+		ans = append(ans, ' ')
+	}
+
+	fmt.Println(strings.Trim(string(ans), " "))
 }
 
 // my functions

@@ -11,15 +11,21 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	m := make(map[string]bool, 4)
+	m["ABC"] = false
+	m["ARC"] = false
+	m["AGC"] = false
+	m["AHC"] = false
+	for i := 0; i < 3; i++ {
+		a := reads()
+		m[a] = true
 	}
-	ans := N
 
-	fmt.Println(ans)
+	for k, v := range m {
+		if !v {
+			fmt.Println(k)
+		}
+	}
 }
 
 // my functions

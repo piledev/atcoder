@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -12,12 +13,17 @@ var sc = bufio.NewScanner(os.Stdin)
 func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	s := reads()
+	t := reads()
+	st := make([]string, 2)
+	st[0] = s
+	st[1] = t
+
+	ans := "No"
+	sort.Strings(st)
+	if st[0] == s {
+		ans = "Yes"
 	}
-	ans := N
 
 	fmt.Println(ans)
 }

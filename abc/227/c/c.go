@@ -13,11 +13,15 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	ans := 0
+	for a := 1; a*a*a <= N; a++ {
+		count := 0
+		for b := a; a*b*b <= N; b++ {
+			count = N/(a*b) - b + 1
+			ans += count
+			// fmt.Println("count:", count)
+		}
 	}
-	ans := N
 
 	fmt.Println(ans)
 }
@@ -25,7 +29,6 @@ func main() {
 // my functions
 func reads() string { sc.Scan(); return sc.Text() }
 func readi() int    { res, _ := strconv.Atoi(reads()); return res }
-func readl() int64  { res, _ := strconv.ParseInt(reads(), 10, 64); return res }
 func min(x, y int) int {
 	if x > y {
 		return y

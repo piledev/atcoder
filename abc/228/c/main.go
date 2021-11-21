@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -13,13 +14,26 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
+	K := readi()
 	A := make([]int, N)
+	o := make([]int, N)
 	for i := 0; i < N; i++ {
-		A[i] = readi()
+		p1 := readi()
+		p2 := readi()
+		p3 := readi()
+		A[i] = p1 + p2 + p3
+		o[i] = p1 + p2 + p3
 	}
-	ans := N
+	sort.Ints(o)
+	target := o[len(o)-K]
 
-	fmt.Println(ans)
+	for i := range A {
+		if A[i]+300 >= target {
+			fmt.Println("Yes")
+			continue
+		}
+		fmt.Println("No")
+	}
 }
 
 // my functions

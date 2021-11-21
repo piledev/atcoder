@@ -23,8 +23,10 @@ func main() {
 }
 
 // my functions
-func reads() string { sc.Scan(); return sc.Text() }
-func readi() int    { res, _ := strconv.Atoi(reads()); return res }
+func reads() string  { sc.Scan(); return sc.Text() }
+func readi() int     { res, _ := strconv.Atoi(reads()); return res }
+func readl() int64   { res, _ := strconv.ParseInt(reads(), 10, 64); return res }
+func readf() float64 { res, _ := strconv.ParseFloat(reads(), 64); return res }
 func min(x, y int) int {
 	if x > y {
 		return y

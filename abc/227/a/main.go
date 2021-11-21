@@ -11,13 +11,19 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	K := readi()
+	A := readi()
+
+	if A == 1 {
+		fmt.Println(1)
+		return
 	}
-	ans := N
+	mod := K % N
+	ans := A + mod - 1
+	if ans > N {
+		ans = ans - N
+	}
 
 	fmt.Println(ans)
 }

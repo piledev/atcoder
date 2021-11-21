@@ -12,14 +12,35 @@ var sc = bufio.NewScanner(os.Stdin)
 func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
-	N := readi()
+	N := 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
 	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	for i := range A {
+		A[i] = -1
 	}
-	ans := N
 
-	fmt.Println(ans)
+	Q := readi()
+	// t := make([]int, Q)
+	// x := make([]int, Q)
+	for i := 0; i < Q; i++ {
+		t := readi()
+		x := readi()
+		switch t {
+		case 1:
+			h := x
+			m := h % N
+			for {
+				if A[m] > -1 {
+					m = (m + 1) % N
+				} else {
+					break
+				}
+			}
+			A[m] = x
+		case 2:
+			m := x % N
+			fmt.Println(A[m])
+		}
+	}
 }
 
 // my functions

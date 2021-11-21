@@ -13,11 +13,18 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	// sc.Buffer([]byte{},math.MaxInt64)
 	N := readi()
+	X := readi()
 	A := make([]int, N)
+	m := make([]bool, N)
 	for i := 0; i < N; i++ {
 		A[i] = readi()
 	}
-	ans := N
+	ans := 0
+
+	for i := X - 1; m[i] == false; i = A[i] - 1 {
+		m[i] = true
+		ans++
+	}
 
 	fmt.Println(ans)
 }

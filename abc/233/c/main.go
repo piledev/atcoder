@@ -13,10 +13,15 @@ var sc = bufio.NewScanner(os.Stdin)
 func main() {
 	sc.Split(bufio.ScanWords)
 	sc.Buffer([]byte{}, math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	N := readl()
+	X := readl()
+	a := make([][]int64, N)
+	for i := int64(0); i < N; i++ {
+		L := readl()
+		a[i] = make([]int64, L)
+		for j := int64(0); j < L; j++ {
+			a[i][j] = readl()
+		}
 	}
 	ans := N
 

@@ -13,14 +13,29 @@ var sc = bufio.NewScanner(os.Stdin)
 func main() {
 	sc.Split(bufio.ScanWords)
 	sc.Buffer([]byte{}, math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
+	n := readi()
+	k := readi()
+	m := make([]bool, n)
+	kth := n + 1
+	for i := 0; i < n; i++ {
+		p := readi()
+		m[p-1] = true
+		if i < k {
+			kth = min(kth, p)
+			if i == k-1 {
+				fmt.Println(kth)
+			}
+		} else {
+			if kth < p {
+				j := kth
+				for m[j] == false {
+					j++
+				}
+				kth = j + 1
+			}
+			fmt.Println(kth)
+		}
 	}
-	ans := N
-
-	fmt.Println(ans)
 }
 
 // my functions

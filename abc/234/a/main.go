@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
 )
@@ -12,15 +11,16 @@ var sc = bufio.NewScanner(os.Stdin)
 
 func main() {
 	sc.Split(bufio.ScanWords)
-	sc.Buffer([]byte{}, math.MaxInt64)
-	N := readi()
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = readi()
-	}
-	ans := N
+	// sc.Buffer([]byte{}, math.MaxInt64)
+	t := readi()
+
+	ans := f(f(f(t)+t) + f(f(t)))
 
 	fmt.Println(ans)
+}
+
+func f(t int) int {
+	return t*t + 2*t + 3
 }
 
 // my functions

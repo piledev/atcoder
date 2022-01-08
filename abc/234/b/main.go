@@ -14,13 +14,30 @@ func main() {
 	sc.Split(bufio.ScanWords)
 	sc.Buffer([]byte{}, math.MaxInt64)
 	N := readi()
-	A := make([]int, N)
+	X := make([]float64, N)
+	Y := make([]float64, N)
 	for i := 0; i < N; i++ {
-		A[i] = readi()
+		X[i] = readf()
+		Y[i] = readf()
 	}
-	ans := N
+
+	ans := float64(0)
+	for i := range X {
+		for j := i + 1; j < N; j++ {
+			ans = max(ans, distance(X[i], X[j], Y[i], Y[j]))
+
+		}
+
+	}
 
 	fmt.Println(ans)
+}
+
+func distance(x1, x2, y1, y2 float64) float64 {
+	ret := float64(0)
+	ret = math.Sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))
+	return ret
+
 }
 
 // my functions
@@ -34,7 +51,7 @@ func min(x, y int) int {
 	}
 	return x
 }
-func max(x, y int) int {
+func max(x, y float64) float64 {
 	if x > y {
 		return x
 	}

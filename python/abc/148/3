@@ -1,0 +1,39 @@
+# 10 進数の x を n 進数の文字列に変換する方法
+
+```python
+def change(x, n):
+    ret = ""
+    while x > 0:
+        ret = str(x%n) + ret
+        x = x // n
+    return ret
+```
+
+# 少数をなるべく使わない方法
+
+小数点を使用すると、誤差が発生する可能性があったり、cast の手間が増えたりといいことないので、なるべく少数を使わないことが好ましい。
+
+```python
+def divisor_list(x:int):
+  i = 1
+  divisor = []
+  # while i <= int(math.sqrt(x)) とせずに
+  while i**2 <= x:
+    if x%i==0:
+      divisor.append(i)
+      if i!=x//i:
+        divisor.append(x//i)
+  divisor.sort()
+  return divisor
+```
+
+# 最大公約数と最小公倍数
+
+python では最大公約数を求める関数が標準ライブラリ math にある。最小公倍数を直接出すものはないが、最大公約数を使って算出することができる。
+
+```python
+# lcm: least common multiple (=最小公倍数)
+def lcm(x,y)
+  # gcd: greatest common divisor (=最大公約数)
+  return (x*y//math.gcd(x,y))
+```

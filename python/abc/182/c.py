@@ -1,27 +1,30 @@
-n = int(input())
-if n%3==0:
+n=int(input())
+mods=[0]*3
+
+t=n
+while t>=10:
+    mods[t%10%3]+=1
+    t//=10
+mods[t%10%3]+=1
+
+mod=n%3
+if mod == 0:
     print(0)
-    exit()
+elif mod == 1:
+    if mods[1]>0 and sum(mods)>1:
+        print(1)
+    elif mods[2]>1 and sum(mods)>2:
+        print(2)
+    else:
+        print(-1)
+elif mod == 2:
+    if mods[2]>0 and sum(mods)>1:
+        print(1)
+    elif mods[1]>1 and sum(mods)>2:
+        print(2)
+    else:
+        print(-1)
 
-dic = {0:0,1:0,2:0}
-ns = str(n)
-for x in ns:
-   dic[int(x)%3] += 1  
 
-ans = -1
-if n%3==1:
-    if dic[1] > 0:
-        ans = 1
-    elif dic[2] > 1:
-        ans = 2 
-else:
-    if dic[2] > 0:
-        ans = 1
-    elif dic[1] > 1:
-        ans = 2
 
-if ans == len(ns):
-    ans = -1
-
-print(ans)
 

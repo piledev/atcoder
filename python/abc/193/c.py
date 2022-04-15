@@ -1,13 +1,12 @@
-n = int(input())
-m = set()
-
-a = 2 
-while a**2 <= n:
-    b = 2
-    while a**b <= n:
-        m.add(a**b)
-        b += 1
-    a += 1
-ans = n - len(m)
-print(ans)
+import math
+n=int(input())
+li=[]
+for a in range(2,int(math.sqrt(n))+1):
+    b=2
+    while a**b<=n:
+        li.append(a**b)
+        b+=1
+        
+s=set(li)
+print(n-len(s))
 

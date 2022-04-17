@@ -1,23 +1,19 @@
-x,k,d = map(int,input().split())
+x,k,d=map(int,input().split())
 x=abs(x)
-
-# k回移動しても0に到達しない場合
-if 0<x-k*d:
-    print(abs(x-k*d))
-
-# 到達する場合
+ans=10**15
+cur=x
+if d*k<=x:
+    ans=x-(d*k)
 else:
-    # x//d: 0 を飛び越える直前までの移動回数
-    # move_count: 0を飛び越える直前の残り移動回数
-    move_count = k-x//d
-    # 飛び越える直前の位置の絶対値
-    jump_before = abs(x-d*(x//d))
-    # 飛び越えた直後の位置の絶対値
-    jump_after = abs(jump_before-d)
-    # 残り回数が偶数なら直前の位置に戻ってくる
-    if move_count%2==0:
-        print(jump_before)
-    # 残り回数が奇数なら直後の位置
+    k-=x//d
+    curr=x-d*(x//d)
+    if k%2==0:
+        ans=curr
     else:
-        print(jump_after)
+        ans=d-curr
+
+print(ans)
+
+
+
 

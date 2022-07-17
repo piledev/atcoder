@@ -1,14 +1,11 @@
 n=int(input())
 a=list(map(int,input().split()))
 mod=1000000007
-
-t=sum(a)
 ans=0
-for v in a:
-    t-=v
-    ans+=(v*t)%mod
+total=sum(a)
+for i in range(n-1):
+    total-=a[i]
+    ans+=a[i]*total
     ans%=mod
 
 print(ans)
-
-

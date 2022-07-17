@@ -1,27 +1,36 @@
+s=input()
+Q=int(input())
+flip=False
 from collections import deque
+d=deque(s)
 
-inv=False
-s=deque(list(input()))
-q=int(input())
-for i in range(q):
-    query=list(map(str,input().split()))
-    if query[0]=="1":
-        inv = not inv
+for i in range(Q):
+    q=list(map(str,input().split()))
+    if q[0]=='1':
+        flip = not flip
     else:
-        if not inv:
-            if query[1]=="1":
-                s.appendleft(query[2])
+        if q[1]=='1':
+            if not flip:
+                d.appendleft(q[2])
             else:
-                s.append(query[2])
+                d.append(q[2])
         else:
-            if query[1]=="1":
-                s.append(query[2])
+            if flip:
+                d.appendleft(q[2])
             else:
-                s.appendleft(query[2])
+                d.append(q[2])
 
-if inv:
-    s.reverse()
+if flip:
+    ans=list()
+    for i in range(len(d)):
+        ans.append(d.pop())
+    print(''.join(ans))
+    
+print(''.join(d))
 
-print("".join(s))
+        
+
+
+
 
 

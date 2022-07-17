@@ -1,27 +1,30 @@
-n, k=map(int,input().split())
+n,k=map(int,input().split())
 r,s,p=map(int,input().split())
-t=input()
+t=list(input())
 
-history=["x" for i in range(n)]
-stronger={"r":"p","s":"r","p":"s"}
-
-def janken(score, my):
-    if my=="r":
-        score+=r
-    elif my=="s":
-        score+=s
-    elif my=="p":
-        score+=p
-    return score, my
-
+points=[0]*n
 ans=0
 for i in range(n):
-    hand=t[i]
-    if i < k:
-        ans, history[i] = janken(ans, stronger[hand])
+    if i<k:
+        if t[i]=='r':
+            points[i]=p
+        elif t[i]=='s':
+            points[i]=r
+        else:
+            points[i]=s
     else:
-        if history[i-k] != stronger[hand]:
-            ans, history[i] = janken(ans, stronger[hand])
+        if t[i]==t[i-k] and points[i-k]>0:
+            pass
+        else:
+            if t[i]=='r':
+                points[i]=p
+            elif t[i]=='s':
+                points[i]=r
+            else:
+                points[i]=s
 
-print(ans)
+print(sum(points))
+
+
+
 

@@ -1,22 +1,17 @@
-def expected_value(x):
-    return((1+x)/2)
-
-n, k = map(int,input().split())
-p = list(map(int,input().split()))
-# expected value: 期待値
-p_ex=[]
+n,k=map(int,input().split())
+p=list(map(int,input().split()))
+hopes=list()
 for i in range(n):
-    p_ex.append(expected_value(p[i]))
+    hopes.append(((p[i]+1)/2))
 
-# cumulative sum: 累積和
-p_ex_cum=[p_ex[0]]
-for i in range(1,n):
-    p_ex_cum.append(p_ex_cum[i-1]+p_ex[i])
+totals=list()
+total=sum(hopes[0:k])
+totals.append(total)
 
-ans=p_ex_cum[k-1]
-for i in range(k,n):
-    # 区間和
-    interval_sum=p_ex_cum[i]-p_ex_cum[i-k]
-    ans=max(ans,interval_sum)
+for i in range(n-k):
+    total=totals[i]-hopes[i]+hopes[i+k]
+    totals.append(total)
 
-print(ans)
+print(max(totals))
+
+

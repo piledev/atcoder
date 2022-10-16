@@ -13,16 +13,53 @@
 - 20. abc199 c
   - clear 2022.04.16 Complete Victory
 - 21. abc195 b
-  - clear 2022.04.16 Dangerous
+  - clear 2022.04.16 Dangerous. Once more!
 - 22. abc154 d
+  - clear 2022.04.17 Dangerous. Once more!
 - 23. abc189 c
-- 36. abc167 c
-- edpc a
-- abc158 d
-- abc204 c
-- abc173 c
-- abc178 c
-- abc174 c
-- edpc d
-- abc151 d
-- abc156 d
+  - clear 2022.04.17 Dangerous. Once more!
+- 24. abc167 c
+  - clear 2022.04.17 Dangerous. Once more!
+- 25. edpc a
+  - clear 2022.04.17 Complete Victory
+- ex. edpc b
+  - clear 2022.04.17 Dangerous. Once more!
+- ex. edpc c
+  - clear 2022.04.17 Dangerous. Once more!
+- 26. abc158 d: 595
+  - clear 2022.04.18 Complete Victory
+- 27. abc204 c: 629
+  - failed 2022.04.18 try again!
+  - failed 2022.04.23 try again!
+- 28. abc173 c: 653
+  - clear 2022.04.23 by wrong method. Once more!
+- 29. abc178 c: 653
+  - clear 2022.04.23 Dangerous. Once more!
+- 30. abc166 d: 694
+  - clear 2022.04.23 O...K...!?
+- 31. abc149 d: 719
+  - clear 2022.04.23 Complete Victory
+- 32. abc190 d: 722
+- 33. abc177 c: 732
+  - clear 2022.04.26 O...K...!?
+- 34. abc169 d: 732
+- 35. abc146 c: 741
+- 36. abc167 d: 754
+- 37. abc168 d: 804
+  - clear 2022.04.23 O...K...!?
+- 38. abc197 c: 809
+- 39. abc141 d: 823
+- 40. abc197 d: 831
+- 41. abc178 d: 875
+- 42. edpc d: 900?
+  - clear 2022.04.16 Complete Victory
+- ex. edpc e
+  - clear 2022.04.18 Dangerous. Once more!
+- 43. abc174 c: 902
+- 44. abc151 d: 959
+- 45. abc156 d: 1014
+- 46. abc153 e: 1015
+- 47. abc185 f: 1053
+- 48. abc178 e: 1054
+- 49. abc177 e: 1057
+- 50. abc192 e: 1135
